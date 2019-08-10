@@ -2,6 +2,8 @@ from queries import Queries
 
 
 def get_template(template_type, keywords_dict):
+    print(template_type)
+    print(keywords_dict)
     queries = Queries()
     try:
         character = keywords_dict['CHARACTER']

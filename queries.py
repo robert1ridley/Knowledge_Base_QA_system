@@ -22,20 +22,12 @@ class Queries:
       name = row[0]
       ancient_birthplace = row[1]
       modern_birthplace = row[2]
-
-      ########################
-      # Where was person A born
-      ########################
       if subj:
         if str(name) == subj:
-          print("{}'s ancient birthplace was {}, which is modern-day {}.".format(name, ancient_birthplace, modern_birthplace))
-
-      ########################
-      # Who was born in place A
-      ########################
+          print("{}的古代籍贯是{}，现代籍贯是{}.".format(name, ancient_birthplace, modern_birthplace))
       elif place:
         if str(ancient_birthplace) == place or str(modern_birthplace) == place:
-          print("{} was born in {}, modern-day {}.".format(name, ancient_birthplace, modern_birthplace))
+          print("{}是在{}出生的，现代的{}.".format(name, ancient_birthplace, modern_birthplace))
       else:
         return self.no_res()
 
@@ -50,20 +42,12 @@ class Queries:
     for row in qres:
       subject = row[0]
       predicate = row[1]
-
-      ########################
-      # Who was loyal to person A?
-      ########################
       if not subj:
         if str(predicate) == pred:
-          print("{} has loyalty from {}.".format(pred, subject))
-
-      ########################
-      # Who person A loyal to?
-      ########################
+          print("{}被{}忠于.".format(pred, subject))
       elif subj:
         if str(subject) == subj:
-          print("{} is loyal to {}.".format(subject, predicate))
+          print("{}忠于{}.".format(subject, predicate))
 
       else:
         return self.no_res()
@@ -80,7 +64,7 @@ class Queries:
       name = row[0]
       lifespan = row[1]
       if str(name) == subj:
-        print("{} lived was alive the following years: {}.".format(name, lifespan))
+        print("{}的生命时间: {}.".format(name, lifespan))
       else:
         return self.no_res()
 
@@ -95,20 +79,12 @@ class Queries:
     for row in qres:
       name = row[0]
       gen = row[1]
-
-      ########################
-      # What gender was Person A?
-      ########################
       if subj:
         if str(name) == subj:
-          print("{} was {}.".format(name, gen))
-
-      ########################
-      # Which characters were male?
-      ########################
+          print("{}是{}.".format(name, gen))
       elif gender:
         if str(gen) == gender:
-          print("{} was {}.".format(name, gen))
+          print("{}是{}.".format(name, gen))
 
       else:
           return self.no_res()
@@ -127,7 +103,7 @@ class Queries:
 
       if subj:
         if str(name) == subj:
-          print("Some info about {}: {}".format(subj, intro))
+          print("{}的简介: {}".format(subj, intro))
       else:
         return self.no_res()
 
@@ -146,10 +122,10 @@ class Queries:
 
       if subj:
         if str(name) == subj:
-          print("{} was {}.".format(name, fict))
+          print("{}是{}.".format(name, fict))
       elif fictional:
         if str(fict) == fictional:
-          print("{} was {}.".format(name, fict))
+          print("{}是{}.".format(name, fict))
       else:
         return self.no_res()
 
@@ -167,11 +143,11 @@ class Queries:
 
       if subj:
         if str(event_name) == subj:
-          print("{} is in {}.".format(event_name, chapter))
+          print("{}在{}.".format(event_name, chapter))
 
       elif chapt:
         if str(chapter) == chapt:
-          print("{} is in {}.".format(event_name, chapter))
+          print("{}在{}.".format(event_name, chapter))
 
       else:
         return self.no_res()
@@ -190,7 +166,7 @@ class Queries:
 
       if subj:
         if str(event_name) == subj:
-          print("Some info about {}: {}".format(event_name, description))
+          print("{}的简介: {}".format(event_name, description))
 
       else:
         return self.no_res()
@@ -209,7 +185,7 @@ class Queries:
 
       if subj:
         if str(event_name) == subj:
-          print("Some history about {}: {}".format(event_name, history))
+          print("{}的历史: {}".format(event_name, history))
 
       else:
         return self.no_res()
@@ -228,10 +204,10 @@ class Queries:
 
       if subj:
         if str(event_name) == subj:
-          print("{} occurred at {}".format(event_name, location))
+          print("{}是在{}发生的。".format(event_name, location))
       elif loc:
         if str(location) == loc:
-          print("{} occurred at {}".format(event_name, location))
+          print("{}是在{}发生的。".format(event_name, location))
       else:
         return self.no_res()
 
@@ -249,10 +225,10 @@ class Queries:
 
       if subj:
         if str(event_name) == subj:
-          print("{} occurred in {}.".format(event_name, time))
+          print("{}是在{}发生的。".format(event_name, time))
       elif year:
         if str(time) == year:
-          print("{} occurred in {}.".format(event_name, time))
+          print("{}是在{}发生的。".format(event_name, time))
       else:
         return self.no_res()
 
@@ -282,9 +258,9 @@ class Queries:
     people_involved_string = ', '.join(people_involved)
     events_involved_in_string = ', '.join(events_involved_in)
     if len(people_involved) > 0:
-      print("{} involved {} people: {}".format(event, len(people_involved), people_involved_string))
+      print("{}事件设计了{}个人物: {}".format(event, len(people_involved), people_involved_string))
     elif len(events_involved_in) > 0:
-      print("{} involved in {} events: {}".format(char, len(events_involved_in), events_involved_in_string))
+      print("{}参与了{}个事件: {}".format(char, len(events_involved_in), events_involved_in_string))
     else:
       return self.no_res()
 
