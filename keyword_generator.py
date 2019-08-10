@@ -60,7 +60,6 @@ class Keywords:
                 self.words.append(loyalty + "\tLOYALTY")
                 self.loyalty_list.append(loyalty)
 
-
     def gender(self):
         self.words.append("男\tGENDER")
         self.words.append("女\tGENDER")
@@ -68,6 +67,8 @@ class Keywords:
     def fictional(self):
         self.words.append("史实人物\tFICTIONAL")
         self.words.append("虚构人物\tFICTIONAL")
+        self.words.append("史实\tFICTIONAL")
+        self.words.append("虚构\tFICTIONAL")
 
     def events(self):
         qres = self.g.query(
@@ -82,7 +83,6 @@ class Keywords:
             if event not in self.event_list:
                 self.words.append(event + "\tEVENT")
                 self.event_list.append(event)
-
 
     def chapters(self):
         qres = self.g.query(

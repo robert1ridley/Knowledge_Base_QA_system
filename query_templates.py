@@ -60,3 +60,5 @@ def get_template(template_type, keywords_dict):
         queries.event_time(event, time)
     elif template_type == 'EVENT_INVOLVED':
         queries.event_involved(event, character)
+    elif template_type == 'FICTIONAL':
+        queries.event_involved(character, fictional)
