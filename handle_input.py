@@ -1,7 +1,6 @@
 import pickle as _pickle
 import numpy as np
 from keras.models import model_from_json
-import jieba.posseg as pseg
 from deep_learning_models.convolutional_network import Conv1DWithMasking, MeanPool
 from utils.utils import get_question_type
 from query_templates import get_template
@@ -44,8 +43,8 @@ class HandleInput:
         self.all_indices = []
         for sentence in self.question:
             sentence_indices = []
-            words = pseg.cut(sentence)
-            for word, flag in words:
+            words = [character for character in sentence]
+            for word in words:
                 if word not in self.vocab_dictionary.keys():
                     word = '<unk>'
                 sentence_indices.append(self.vocab_dictionary[word])

@@ -1,7 +1,6 @@
 import random
 import numpy as np
 import pickle as _pickle
-import jieba.posseg as pseg
 import deep_learning_models.convolutional_network as deep_models
 
 
@@ -41,8 +40,8 @@ def generate_vocabulary(data):
     vocabulary_dict = {'<unk>': 0}
     index = len(vocabulary_dict)
     for sentence in data:
-        words = pseg.cut(sentence)
-        for word, flag in words:
+        words = [character for character in sentence]
+        for word in words:
             if word not in vocabulary_dict.keys():
                 vocabulary_dict[word] = index
                 index += 1
@@ -55,9 +54,9 @@ def indicize_data(vocab_dict, data):
     max_sent = -1
     for sentence in data:
         sentence_indices = []
-        words = pseg.cut(sentence)
+        words = [character for character in sentence]
         word_count = 0
-        for word, flag in words:
+        for word in words:
             if word not in vocab_dict.keys():
                 word = '<unk>'
             sentence_indices.append(vocab_dict[word])
