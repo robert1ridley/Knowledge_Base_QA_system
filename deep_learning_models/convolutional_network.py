@@ -7,7 +7,7 @@ import keras.backend as K
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 import tensorflow as tf
-tf.logging.set_verbosity(tf.logging.ERROR)
+tf.compat.v1.logging.set_verbosity(tf.compat.v1.logging.ERROR)
 
 
 class Conv1DWithMasking(Convolution1D):
@@ -43,8 +43,8 @@ def build_convolutional_network(max_sent, emb_dim, y_size):
     text_input = Input(shape=(max_sent,), dtype='int32', name='text_input')
     emb_layer = Embedding(output_dim=emb_dim, input_dim=emb_dim, input_length=max_sent,
                   mask_zero=True, name='pos_emb')(text_input)
-    conv_layer = Conv1DWithMasking(nb_filter=50, filter_length=5, border_mode='same',
-                                   subsample_length=1, name='conv_layer')(emb_layer)
+    conv_layer = Conv1DWithMasking(strides = 1, kernel_size = 5, name = "conv_layer",
+                                   filters = 50, padding = "same")(emb_layer)
     pooling = MeanPool(name='pooling')(conv_layer)
     drop_layer = Dropout(0.1, name='drop_layer')(pooling)
 

@@ -64,7 +64,7 @@ class Queries:
       name = row[0]
       lifespan = row[1]
       if str(name) == subj:
-        print("{}的生命时间: {}.".format(name, lifespan))
+        print("{}的生命时间: {}。".format(name, lifespan))
       else:
         return self.no_res()
 
@@ -81,10 +81,10 @@ class Queries:
       gen = row[1]
       if subj:
         if str(name) == subj:
-          print("{}是{}.".format(name, gen))
+          print("{}是一个{}生.".format(name, gen))
       elif gender:
         if str(gen) == gender:
-          print("{}是{}.".format(name, gen))
+          print("{}是一个{}生.".format(name, gen))
 
       else:
           return self.no_res()
