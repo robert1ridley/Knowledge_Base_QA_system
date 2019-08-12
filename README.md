@@ -7,7 +7,7 @@
 ## 设置环境指南
 - 下载项目：`git clone https://github.com/robert1ridley/Knowledge_Base_QA_system.git`
 - 打开一个终端窗口
-- 输入`cd Knoweledge_Base_QA_system`
+- 输入`cd Knowledge_Base_QA_system`
 - 生成一个python3虚拟环境: 输入`python3 -m venv venv`
 - 启动虚拟环境：输入`source venv/bin/activate`
 - 下载项目的依赖性：输入`pip install -r requirements.txt`
