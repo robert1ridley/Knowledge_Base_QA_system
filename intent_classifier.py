@@ -15,9 +15,9 @@ def load_data(filename):
 
 
 def split_data(data):
-    training_data = data[:8000]
-    dev_data = data[8000:9200]
-    test_data = data[9200:10400]
+    training_data = data[:9000]
+    dev_data = data[9000:10500]
+    test_data = data[10500:12000]
     return training_data, dev_data, test_data
 
 
