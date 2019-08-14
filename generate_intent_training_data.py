@@ -26,7 +26,7 @@ class GenerateIntentTrainingData:
                 self.questions.append(line)
 
     def generate_training_data(self):
-        for i in range(0, 100):
+        for i in range(0, 50):
             for question in self.questions:
                 random_character = random.choice(self.keyword_lists['CHARACTER'])
                 random_place = random.choice(self.keyword_lists['PLACE'])

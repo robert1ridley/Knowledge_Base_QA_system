@@ -37,7 +37,6 @@ class HandleInput:
         print("输入你关于三国演义的问题：")
         question = input()
         self.question = [question]
-        print("正在搜索答案。")
 
     def segment_data(self):
         self.all_indices = []
@@ -86,6 +85,9 @@ if __name__ == '__main__':
         handle_input.make_prediction()
         question_type = get_question_type(handle_input.prediction)
         handle_input.find_keywords_in_text()
+        print('问句类型：{}'.format(question_type))
+        print('抽取的关键词：{}'.format(handle_input.matched_keywords))
+        print('正在搜索答案：')
         get_template(question_type, handle_input.matched_keywords)
 
 

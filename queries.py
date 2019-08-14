@@ -39,18 +39,25 @@ class Queries:
              ?person foaf:name ?charname .
           }""")
 
+    characters = []
     for row in qres:
       subject = row[0]
       predicate = row[1]
       if not subj:
         if str(predicate) == pred:
-          print("{}被{}忠于.".format(pred, subject))
+          characters.append(subject)
+          # print("{}被{}忠于.".format(pred, subject))
       elif subj:
         if str(subject) == subj:
           print("{}忠于{}.".format(subject, predicate))
 
       else:
         return self.no_res()
+
+    if len(characters) > 0:
+      loyal_subjects = ', '.join(characters)
+      num_characters = len(characters)
+      print("{}被{}个人物效忠：{}".format(pred, num_characters, loyal_subjects))
 
   def lifespan(self, subj):
     qres = self.g.query(
@@ -258,7 +265,7 @@ class Queries:
     people_involved_string = ', '.join(people_involved)
     events_involved_in_string = ', '.join(events_involved_in)
     if len(people_involved) > 0:
-      print("{}事件设计了{}个人物: {}".format(event, len(people_involved), people_involved_string))
+      print("{}事件涉及了{}个人物: {}".format(event, len(people_involved), people_involved_string))
     elif len(events_involved_in) > 0:
       print("{}参与了{}个事件: {}".format(char, len(events_involved_in), events_involved_in_string))
     else:
