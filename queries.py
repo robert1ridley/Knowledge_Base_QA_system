@@ -264,20 +264,6 @@ class Queries:
     else:
       return self.no_res()
 
-if __name__ == '__main__':
-    templates = Queries()
-    # templates.loyalty("丁斐", None)
-    # templates.birthplace("丁仪", None)
-    # templates.lifespan("丁仪")
-    # templates.gender("丁仪", None)
-    # templates.about_character("丁仪")
-    # templates.fictional(None, "史实人物")
-    # templates.which_chapter(None, "第17回第1段")
-    # templates.event_info("一意孤行袁术篡逆称帝")
-    # templates.event_history("一意孤行袁术篡逆称帝")
-    # templates.event_location(None, "寿春")
-    # templates.event_time(None, "196年")
-    # templates.event_involved("孙策讨要玉玺袁术不还", None)
 
 
 

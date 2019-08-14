@@ -2,8 +2,6 @@ from queries import Queries
 
 
 def get_template(template_type, keywords_dict):
-    print(template_type)
-    print(keywords_dict)
     queries = Queries()
     try:
         character = keywords_dict['CHARACTER']
@@ -61,4 +59,4 @@ def get_template(template_type, keywords_dict):
     elif template_type == 'EVENT_INVOLVED':
         queries.event_involved(event, character)
     elif template_type == 'FICTIONAL':
-        queries.event_involved(character, fictional)
+        queries.fictional(character, fictional)

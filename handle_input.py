@@ -3,7 +3,7 @@ import numpy as np
 from keras.models import model_from_json
 from deep_learning_models.convolutional_network import Conv1DWithMasking, MeanPool
 from utils.utils import get_question_type
-from query_templates import get_template
+from query_matching import get_template
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 import tensorflow as tf
