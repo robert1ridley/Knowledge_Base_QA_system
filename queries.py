@@ -46,7 +46,6 @@ class Queries:
       if not subj:
         if str(predicate) == pred:
           characters.append(subject)
-          # print("{}被{}忠于.".format(pred, subject))
       elif subj:
         if str(subject) == subj:
           print("{}忠于{}.".format(subject, predicate))
